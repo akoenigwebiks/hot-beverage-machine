@@ -16,6 +16,8 @@ namespace hot_beverage_machine
         public Form1()
         {
             InitializeComponent();
+            button_DrinkUpdate.Visible = false;
+            button_DrinkRemove.Visible = false;
 
             // create xml if not exists
             xmlDocument = new XmlDocument();
@@ -54,7 +56,17 @@ namespace hot_beverage_machine
 
         private void button_DrinkRemove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(xmlDocument.InnerXml);
+            XmlNode drink = GetDrinkByName(textBox_drinkName.Text);
+            var showdialog = MessageBox.Show(
+                "האם ברצונך למחוק את המשקה הנכבד" + textBox_drinkName.Text,
+                "מחיקת משקה",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+            if (showdialog == DialogResult.Yes)
+            {
+                drink.ParentNode.RemoveChild(drink);
+            }
         }
 
         private void button_saveData_Click(object sender, EventArgs e)
@@ -115,7 +127,9 @@ namespace hot_beverage_machine
                 );
             if (showDialog == DialogResult.Yes)
             {
-                MessageBox.Show("YES?");
+                button_DrinkUpdate.Visible = true;
+                button_DrinkRemove.Visible = true;
+                button_DrinkAdd.Visible = false;
             }
         }
 
