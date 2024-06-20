@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Collections.Generic;
+using static System.Windows.Forms.LinkLabel;
 
 namespace hot_beverage_machine
 {
@@ -71,13 +72,24 @@ namespace hot_beverage_machine
 
         private void button_saveData_Click(object sender, EventArgs e)
         {
+            //drink.SelectSingleNode("sugar").InnerText = comboboxSugar.Text;
+            //drink.SelectSingleNode("cocoa").InnerText = comboboxCocoa.Text;
+            //drink.SelectSingleNode("milk").InnerText = comboboxMilk.Text;
+            //drink.SelectSingleNode("coffee").InnerText = comboboxCoffee.Text;
+            seedDGV();
             xmlDocument.Save(pathname);
             MessageBox.Show("Data saved successfully!");
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_DrinkUpdate_Click(object sender, EventArgs e)
         {
+            string name = textBox_drinkName.Text;
+            XmlNode drink = GetDrinkByName(name);
 
+            comboboxSugar.Text = drink.SelectSingleNode("sugar").InnerText;
+            comboboxCocoa.Text = drink.SelectSingleNode("cocoa").InnerText;
+            comboboxCoffee.Text = drink.SelectSingleNode("coffee").InnerText;
+            comboboxMilk.Text = drink.SelectSingleNode("milk").InnerText;
         }
 
         private XmlNode GetXmlRoot()
@@ -153,6 +165,13 @@ namespace hot_beverage_machine
                 }
             }
             return null;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count-1)
+                textBox_drinkName.Text = dataGridView1[0, e.RowIndex].Value.ToString();
+
         }
     }
 }

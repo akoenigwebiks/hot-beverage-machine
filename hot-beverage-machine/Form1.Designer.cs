@@ -45,13 +45,13 @@
             this.button_DrinkAdd = new System.Windows.Forms.Button();
             this.button_saveData = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button_DrinkUpdate = new System.Windows.Forms.Button();
+            this.button_DrinkRemove = new System.Windows.Forms.Button();
             this.sugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coffee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cocoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.milk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_DrinkUpdate = new System.Windows.Forms.Button();
-            this.button_DrinkRemove = new System.Windows.Forms.Button();
+            this.coffee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,30 +236,46 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sugar,
-            this.coffee,
             this.cocoa,
             this.milk,
-            this.price});
+            this.price,
+            this.coffee});
             this.dataGridView1.Location = new System.Drawing.Point(366, 212);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(657, 191);
             this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // button_DrinkUpdate
+            // 
+            this.button_DrinkUpdate.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button_DrinkUpdate.Location = new System.Drawing.Point(162, 133);
+            this.button_DrinkUpdate.Name = "button_DrinkUpdate";
+            this.button_DrinkUpdate.Size = new System.Drawing.Size(75, 78);
+            this.button_DrinkUpdate.TabIndex = 17;
+            this.button_DrinkUpdate.Text = "עדכון סוג שתיה";
+            this.button_DrinkUpdate.UseVisualStyleBackColor = false;
+            this.button_DrinkUpdate.Click += new System.EventHandler(this.button_DrinkUpdate_Click);
+            // 
+            // button_DrinkRemove
+            // 
+            this.button_DrinkRemove.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.button_DrinkRemove.Location = new System.Drawing.Point(257, 133);
+            this.button_DrinkRemove.Name = "button_DrinkRemove";
+            this.button_DrinkRemove.Size = new System.Drawing.Size(75, 78);
+            this.button_DrinkRemove.TabIndex = 18;
+            this.button_DrinkRemove.Text = "מחיקת סוג שתיה";
+            this.button_DrinkRemove.UseVisualStyleBackColor = false;
+            this.button_DrinkRemove.Click += new System.EventHandler(this.button_DrinkRemove_Click);
             // 
             // sugar
             // 
-            this.sugar.HeaderText = "סוכר";
+            this.sugar.HeaderText = "שם";
             this.sugar.MinimumWidth = 6;
             this.sugar.Name = "sugar";
             this.sugar.ReadOnly = true;
-            // 
-            // coffee
-            // 
-            this.coffee.HeaderText = "קפה";
-            this.coffee.MinimumWidth = 6;
-            this.coffee.Name = "coffee";
-            this.coffee.ReadOnly = true;
             // 
             // cocoa
             // 
@@ -277,32 +293,17 @@
             // 
             // price
             // 
-            this.price.HeaderText = "מחיר";
+            this.price.HeaderText = "סוכר";
             this.price.MinimumWidth = 6;
             this.price.Name = "price";
             this.price.ReadOnly = true;
             // 
-            // button_DrinkUpdate
+            // coffee
             // 
-            this.button_DrinkUpdate.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button_DrinkUpdate.Location = new System.Drawing.Point(162, 133);
-            this.button_DrinkUpdate.Name = "button_DrinkUpdate";
-            this.button_DrinkUpdate.Size = new System.Drawing.Size(75, 78);
-            this.button_DrinkUpdate.TabIndex = 17;
-            this.button_DrinkUpdate.Text = "עדכון סוג שתיה";
-            this.button_DrinkUpdate.UseVisualStyleBackColor = false;
-            this.button_DrinkUpdate.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button_DrinkRemove
-            // 
-            this.button_DrinkRemove.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button_DrinkRemove.Location = new System.Drawing.Point(257, 133);
-            this.button_DrinkRemove.Name = "button_DrinkRemove";
-            this.button_DrinkRemove.Size = new System.Drawing.Size(75, 78);
-            this.button_DrinkRemove.TabIndex = 18;
-            this.button_DrinkRemove.Text = "מחיקת סוג שתיה";
-            this.button_DrinkRemove.UseVisualStyleBackColor = false;
-            this.button_DrinkRemove.Click += new System.EventHandler(this.button_DrinkRemove_Click);
+            this.coffee.HeaderText = "מחיר";
+            this.coffee.MinimumWidth = 6;
+            this.coffee.Name = "coffee";
+            this.coffee.ReadOnly = true;
             // 
             // Form1
             // 
@@ -356,13 +357,13 @@
         private System.Windows.Forms.Button button_DrinkAdd;
         private System.Windows.Forms.Button button_saveData;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_DrinkUpdate;
+        private System.Windows.Forms.Button button_DrinkRemove;
         private System.Windows.Forms.DataGridViewTextBoxColumn sugar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coffee;
         private System.Windows.Forms.DataGridViewTextBoxColumn cocoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn milk;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.Button button_DrinkUpdate;
-        private System.Windows.Forms.Button button_DrinkRemove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coffee;
     }
 }
 
