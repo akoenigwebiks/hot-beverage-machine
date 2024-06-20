@@ -169,7 +169,7 @@ namespace hot_beverage_machine
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count-1)
+            if(!(e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count-1)) return;
                 textBox_drinkName.Text = dataGridView1[0, e.RowIndex].Value.ToString();
 
         }
